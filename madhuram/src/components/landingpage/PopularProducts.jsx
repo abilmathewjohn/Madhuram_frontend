@@ -1,84 +1,85 @@
-
-import { Star,ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-
-const products = [
-  { 
-    name: "Assorted Gift Box", 
-    price: "$29.99", 
-    image: "/images/product1.jpg",
-    rating: 4.8,
-    reviews: 124,
-    tag: "Bestseller"
-  },
-  { 
-    name: "Premium Chocolate Box", 
-    price: "$39.99", 
-    image: "/images/product2.jpg",
-    rating: 4.9,
-    reviews: 89,
-    tag: "New"
-  },
-  { 
-    name: "Fruit & Nut Mix", 
-    price: "$24.99", 
-    image: "/images/product3.jpg",
-    rating: 4.7,
-    reviews: 156,
-    tag: "Popular"
-  },
-  { 
-    name: "Special Occasion Pack", 
-    price: "$49.99", 
-    image: "/images/product4.jpg",
-    rating: 4.9,
-    reviews: 93,
-    tag: "Limited"
-  }
-];
+import { Heart, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PopularProducts = () => {
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data.slice(0, 4))) // Show top 4 products
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+
   return (
-    <div className="bg-white py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
+    <div className="bg-[#fdf6f0] py-16">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="flex justify-between items-center mb-12">
           <div>
-            <span className="text-[#666] text-sm font-medium">Featured</span>
-            <h2 className="text-3xl font-bold text-[#333]">Most Popular Products</h2>
+            <span className="text-[#a66a50] text-sm font-semibold uppercase tracking-wider">Best Sellers</span>
+            <h2 className="text-4xl font-extrabold text-[#5a3e2b]">Indulge in Our Finest Treats</h2>
           </div>
-          <button className="flex items-center space-x-2 text-[#FF6F61] hover:text-[#40E0D0] transition">
-            <span>View All Products</span>
-            <ArrowRight className="w-4 h-4" />
+          <button
+            onClick={() => navigate("/shop")}
+            className="flex items-center space-x-2 text-[#ce8628] hover:text-[#ae8474] transition font-semibold text-lg"
+          >
+            <span>Shop All</span>
+            <ArrowRight className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <motion.div
-              key={product.name}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
+              key={product._id}
+              whileHover={{ scale: 1.02 }}
+              className="bg-white rounded-3xl shadow-md hover:shadow-lg transition p-4 flex flex-col items-center relative"
             >
-              <div className="relative">
-                <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
-                <span className="absolute top-4 right-4 bg-[#FF6F61] text-white px-3 py-1 rounded-full text-sm font-medium">
-                  {product.tag}
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-medium text-lg text-[#333] mb-2">{product.name}</h3>
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
-                    ))}
-                  </div>
-                  <span className="text-sm text-[#666]">({product.reviews})</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-bold text-[#FF6F61]">{product.price}</span>
-                  <button className="bg-[#40E0D0] text-white px-4 py-2 rounded-lg hover:bg-[#FF6F61] transition">
-                    Add to Cart
+              {/* Wishlist Button */}
+              <button className="absolute top-4 right-4 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition">
+                <Heart className="w-6 h-6 text-[#db9286]" />
+              </button>
+
+              {/* Product Image */}
+              <img
+                src={`http://localhost:3000/${product.image}`}
+                alt={product.name}
+                className="w-48 h-48 object-cover rounded-xl"
+              />
+
+              {/* Product Details */}
+              <div className="mt-4 text-center flex flex-col flex-grow w-full">
+                {/* Category */}
+                <span className="text-sm text-gray-500 uppercase">{product.category}</span>
+
+                {/* Product Name (Fixed Height for Consistency) */}
+                <h3 className="mt-2 font-semibold text-lg text-[#5a3e2b] h-12 flex items-center justify-center px-2">
+                  {product.name}
+                </h3>
+
+                {/* Price */}
+                <div className="mt-2 text-xl font-bold text-[#ce8628]">₹{product.price}</div>
+
+                {/* Spacer to keep buttons aligned */}
+                <div className="flex-grow"></div>
+
+                {/* Add to Cart / View Details */}
+                <div className="w-full mt-4 flex gap-3">
+                  <button
+                    className="flex-1 bg-[#ce8628] text-white py-3 rounded-xl font-semibold hover:bg-[#ae8474] transition text-lg"
+                    onClick={() => navigate(`/product/${product._id}`)}
+                  >
+                    View
+                  </button>
+                  <button
+                    className="flex-1 bg-[#5a3e2b] text-white py-3 rounded-xl font-semibold hover:bg-[#3e2b1e] transition text-lg"
+                  >
+                    Add
                   </button>
                 </div>
               </div>

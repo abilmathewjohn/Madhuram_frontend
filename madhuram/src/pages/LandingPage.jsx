@@ -2,7 +2,7 @@
 import AnnouncementBar from '../components/landingpage/AnnouncementBar';
 import Navbar from '../components/landingpage/Navbar';
 import HeroSection from '../components/landingpage/HeroSection';
-// import Features from '../components/landingpage/Features';
+
 import Categories from '../components/landingpage/Categories';
 import PopularProducts from '../components/landingpage/PopularProducts';
 import WhyChooseUs from '../components/landingpage/WhyChooseUs';
@@ -18,7 +18,6 @@ const LandingPage = () => {
       <AnnouncementBar />
       <Navbar />
       <HeroSection />
-      {/* <Features /> */}
       <Categories />
       <PopularProducts />
       <WhyChooseUs />
