@@ -5,13 +5,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const categories = [
-  { name: "Premium Chocolates", image: "/images/premium.png" },
-  { name: "Chocolate Combos", image: "/images/combo.jpg" },
-  { name: "Fruits & Nuts Chocolates", image: "/images/fruits-nuts.jpg" },
-  { name: "Assorted Sweets", image: "/images/sweets.jpg" },
-  { name: "Dry Fruit Sweets", image: "/images/dry-fruits.jpg" },
-  { name: "Gift Hampers", image: "/images/gift-hampers.jpg" },
-  { name: "Festive Deals", image: "/images/deals.jpg" }
+  { name: "Premium Chocolates", image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNb5JdEsoiSNSVXprcoLlGqdWsKrgGcvfXc8vHSuRVRN-HM7_Y9lsTqhJk01oyI4PViaXRZMtqjpahvO_-eb7NhrEAi1id95Y-nLD1dpk" },
+  { name: "Chocolate Combos", image: "https://artisante.in/cdn/shop/products/mini-chocolates-with-nuts-341877_1800x1800.jpg?v=1663919892" },
+  { name: "Fruits & Nuts Chocolates", image: "https://d2kwrscaws6vau.cloudfront.net/products/Fruit-Nut-1.jpg-2024-12-24-123525-g7ztzhiskyk.png" },
+  { name: "Assorted Sweets", image: "https://m.media-amazon.com/images/I/5189Im2EfpL._SX300_SY300_QL70_FMwebp_.jpg" },
+  { name: "Dry Fruit Sweets", image: "https://m.media-amazon.com/images/I/81s63nDYp4L._SX679_.jpg" },
+  { name: "Gift Hampers", image: "https://m.media-amazon.com/images/I/A1SIyuoJ8VL.jpg" },
+  { name: "Festive Deals", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSffARbw95bc5hijtgu7YhZg2hFlP_KP2dTJA&s" }
 ];
 
 const Categories = () => {
