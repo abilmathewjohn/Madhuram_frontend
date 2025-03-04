@@ -15,6 +15,9 @@ import {
   ChevronDown,
   Boxes,
   UserCog,
+  User,
+  Image,
+  ListChecks,
 } from "lucide-react";
 
 const Sidebar = ({ isExpanded, setIsExpanded }) => {
@@ -41,53 +44,24 @@ const Sidebar = ({ isExpanded, setIsExpanded }) => {
       path: "/admin/products",
       submenu: [
         { title: "Add Products", icon: <Boxes size={16} />, path: "/admin/products/add" },
-        { title: "View Product", icon: <Package size={16} />, path: "/admin/products/view" },
+        { title: "View Products", icon: <Package size={16} />, path: "/admin/products/view" },
       ],
     },
-    {
-      title: "Orders",
-      icon: <ShoppingCart size={20} />,
-      path: "/admin/orders",
-      submenu: [
-        { title: "View Order", icon: <ShoppingCart size={16} />, path: "/admin/orders/view/" },
-        { title: "Update Order", icon: <ShoppingCart size={16} />, path: "/admin/orders/update/:id" },
-        { title: "Delete Order", icon: <ShoppingCart size={16} />, path: "/admin/orders/delete/:id" },
-      ],
-    },
-    {
-      title: "Customers",
-      icon: <Users size={20} />,
-      path: "/admin/customers",
-      submenu: [
-        { title: "Edit Customer", icon: <Users size={16} />, path: "/admin/customers/edit/:id" },
-      ],
-    },
+    { title: "Orders", icon: <ShoppingCart size={20} />, path: "/admin/orders" },
+    { title: "Customers", icon: <Users size={20} />, path: "/admin/customers" },
     {
       title: "Employees",
       icon: <UserCog size={20} />,
       path: "/admin/employees",
       submenu: [
-        { title: "Create Employee", icon: <UserCog size={16} />, path: "/admin/employees/create" },
+        { title: "Create Employee", icon: <User size={16} />, path: "/admin/employees/create" },
       ],
     },
-
-    { title: "Task", icon: <UserCog size={20} />, path: "/admin/task" ,submenu: [
-        
-      ]
-    },
-    { title: "Image Upload", icon: <UserCog size={20} />, path: "/admin/image-upload" },
+    { title: "Tasks", icon: <ListChecks size={20} />, path: "/admin/task" },
+    { title: "Image Upload", icon: <Image size={20} />, path: "/admin/image-upload" },
     { title: "Payments", icon: <CreditCard size={20} />, path: "/admin/payments" },
     { title: "Notifications", icon: <Bell size={20} />, path: "/admin/notifications" },
-    {
-      title: "Settings",
-      icon: <Settings size={20} />,
-      path: "/admin/settings",
-      submenu: [
-        { title: "General", icon: <Settings size={16} />, path: "/admin/settings/general" },
-        { title: "Security", icon: <Settings size={16} />, path: "/admin/settings/security" },
-        { title: "Appearance", icon: <Settings size={16} />, path: "/admin/settings/appearance" },
-      ],
-    },
+    { title: "Profile", icon: <Settings size={20} />, path: "/admin/profile" },
   ];
 
   return (
@@ -100,11 +74,15 @@ const Sidebar = ({ isExpanded, setIsExpanded }) => {
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
         {isExpanded ? (
           <div className="flex items-center gap-2">
-            <img src="../public/images/logo.png" alt="Logo" className="h-8 w-8 rounded" />
+            <div className="h-8 w-8 bg-blue-500 rounded flex items-center justify-center">
+              <span className="text-white font-bold">M</span>
+            </div>
             <span className="font-semibold text-gray-800">Madhuram</span>
           </div>
         ) : (
-          <img src="../public/images/logo.png" alt="Logo" className="h-8 w-8 rounded mx-auto" />
+          <div className="h-8 w-8 bg-blue-500 rounded flex items-center justify-center mx-auto">
+            <span className="text-white font-bold">M</span>
+          </div>
         )}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
@@ -170,7 +148,7 @@ const Sidebar = ({ isExpanded, setIsExpanded }) => {
           className={`w-full flex items-center gap-3 p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200 ${
             isExpanded ? "justify-start" : "justify-center"
           }`}
-          onClick={() => navigate("/my-account")}
+          onClick={() => navigate("/")}
         >
           <LogOut size={20} />
           {isExpanded && <span className="font-medium">Logout</span>}
