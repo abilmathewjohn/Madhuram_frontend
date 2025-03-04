@@ -117,11 +117,11 @@ const Navbar = () => {
                     <div
                       className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                       onClick={() => {
-                        navigate("/update-profile");
+                        navigate("/profile");
                         setIsDropdownOpen(false);
                       }}
                     >
-                      Update Profile
+                      Profile/Update
                     </div>
                     <div
                       className="px-4 py-2 hover:bg-gray-100 cursor-pointer"

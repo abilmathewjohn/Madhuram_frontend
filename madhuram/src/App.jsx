@@ -8,8 +8,6 @@ import AddProduct from "./pages/admindashboard/AddProduct";
 import EditProduct from "./pages/admindashboard/EditProduct";
 import ViewProduct from "./pages/admindashboard/ViewProduct";
 import Orders from "./pages/admindashboard/Orders";
-import ViewOrder from "./pages/admindashboard/ViewOrder";
-import DeleteOrder from "./pages/admindashboard/DeleteOrder";
 
 import Customers from "./pages/admindashboard/Customers";
 import EditCustomer from "./pages/admindashboard/EditCustomer";
@@ -36,6 +34,9 @@ import Order from "./components/landingpage/Orders";
 import EmployeeDashboard from "./pages/employeedashboard/EmployeeDashboard";
 import Dashboard from "./pages/employeedashboard/DashboardContent";
 import OrderConfirmation from "./components/landingpage/OrderConfirmation";
+import Profile from "./components/landingpage/Profile";
+import PaymentHistory from "./components/landingpage/PaymentHistory";
+import ProfileAdmin from "./pages/admindashboard/Profile";
 
 
 
@@ -53,6 +54,9 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/orders" element={<Order />} />
         <Route path="/orders/:orderId" element={<OrderConfirmation />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/payments" element={<PaymentHistory />} />
+
 
   
 
@@ -71,9 +75,7 @@ const App = () => {
 
           {/* Orders */}
            <Route path="orders" element={<Orders />} />
-          <Route path="orders/view/" element={<ViewOrder />} />
-          
-          <Route path="orders/delete/:id" element={<DeleteOrder />} />
+    
 
           {/* Customers */}
           <Route path="customers" element={<Customers />} />
@@ -98,6 +100,8 @@ const App = () => {
 
 
           <Route path="payments" element={<Payment />} />
+          <Route path="profile" element={<ProfileAdmin />} />
+
 
 
           </Route>
