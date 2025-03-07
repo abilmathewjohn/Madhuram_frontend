@@ -49,7 +49,7 @@ const PopularProducts = () => {
               <img
                 src={`http://localhost:3000/${product.image}`}
                 alt={product.name}
-                className="w-48 h-48 object-cover rounded-xl"
+                className="w-44 h-44 object-cover rounded-xl"
               />
 
               {/* Product Details */}
@@ -58,7 +58,7 @@ const PopularProducts = () => {
                 <span className="text-sm text-gray-500 uppercase">{product.category}</span>
 
                 {/* Product Name (Fixed Height for Consistency) */}
-                <h3 className="mt-2 font-semibold text-lg text-[#5a3e2b] h-12 flex items-center justify-center px-2">
+                <h3 className="mt-2 font-semibold text-lg text-[#5a3e2b] min-h-[3.5rem] line-clamp-2 px-2">
                   {product.name}
                 </h3>
 

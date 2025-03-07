@@ -18,6 +18,7 @@ import {
   User,
   Image,
   ListChecks,
+  Tag,
 } from "lucide-react";
 
 const Sidebar = ({ isExpanded, setIsExpanded }) => {
@@ -62,6 +63,7 @@ const Sidebar = ({ isExpanded, setIsExpanded }) => {
     { title: "Payments", icon: <CreditCard size={20} />, path: "/admin/payments" },
     { title: "Notifications", icon: <Bell size={20} />, path: "/admin/notifications" },
     { title: "Profile", icon: <Settings size={20} />, path: "/admin/profile" },
+    { title: "Coupons", icon: <Tag size={20} />, path: "/admin/coupons" },
   ];
 
   return (

@@ -38,6 +38,8 @@ import Profile from "./components/landingpage/Profile";
 import PaymentHistory from "./components/landingpage/PaymentHistory";
 import ProfileAdmin from "./pages/admindashboard/Profile";
 
+import Coupon from "./pages/admindashboard/CouponManagement";
+
 
 
 const App = () => {
@@ -101,6 +103,10 @@ const App = () => {
 
           <Route path="payments" element={<Payment />} />
           <Route path="profile" element={<ProfileAdmin />} />
+
+          <Route path="coupons" element={<Coupon />} />
+
+
 
 
 

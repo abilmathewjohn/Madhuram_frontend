@@ -52,7 +52,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    navigate("/login");
+    navigate("/my-account");
   };
 
   // Toggle mobile menu
@@ -156,7 +156,7 @@ const Navbar = () => {
                   <div
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                     onClick={() => {
-                      navigate("/login");
+                      navigate("/my-account");
                       setIsDropdownOpen(false);
                     }}
                   >
@@ -185,7 +185,7 @@ const Navbar = () => {
               <ShoppingCart className="w-6 h-6 text-[#333]" />
               <span>Cart ({cartCount})</span>
             </div>
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/login")}>
+            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/my-account")}>
               <UserCircle className="w-6 h-6 text-[#333]" />
               <span>{isLoggedIn ? "My Account" : "Login"}</span>
             </div>
